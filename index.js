@@ -1,5 +1,18 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const neededValues = new Map();
+  const len = array.length;
+
+  for(let i = 0; i < len; i++) {
+    let currentNumber = array[i];
+    let complement = target - currentNumber;
+
+    if (neededValues.has(complement)) {
+      return true;
+      } else {
+        neededValues.set(array[i], i)
+      }
+  }
+  return false
 }
 
 /* 
